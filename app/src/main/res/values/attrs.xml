@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleLayout">
+        <!--开始角度-->
+        <attr name="startAngle" format="integer" />
+        <!--结束角度-->
+        <attr name="endAngle" format="integer" />
+        <!--旋转方向-->
+        <attr name="rotateDirection">
+            <!--顺时针-->
+            <enum name="clockwise" value="0" />
+            <!--逆时针-->
+            <enum name="counterclockwise" value="1" />
+        </attr>
+        <!--形状-->
+        <attr name="pathShape">
+            <!--顺时针-->
+            <enum name="circle" value="0" />
+            <!--逆时针-->
+            <enum name="rectangle" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
