@@ -1,6 +1,11 @@
 CircleLayout
 ============
 
+![alt text](/graphics/circle.png "circle")
+![alt text](/graphics/rect.png "rect")
+![alt text](/graphics/custom.png "custom")
+
+
 To make child views be arranged in a circular.圆形布局.
 
 使用方法:
