@@ -55,4 +55,5 @@ rotateDirection should be clockwise or counterclockwise,the default vlaue is clo
 
 # License
 
-This project is licensed under the MIT License.Just use it. LOL.
+This project is licensed under the MIT License.Please refer the [License.txt](/License.txt) file.
+Just use it. LOL.
