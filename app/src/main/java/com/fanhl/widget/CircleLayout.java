@@ -114,6 +114,7 @@ public class CircleLayout extends ViewGroup {
         int mBottom = height;
 
 
+        int[] maxChildWidthHeight = getMaxChildWidthHeight();
 
 
         for (int i = 0; i < childCount; i++) {
@@ -121,7 +122,15 @@ public class CircleLayout extends ViewGroup {
 
             View child = getChildAt(i);
 
-            int[] childCenterXY = getChildCenterXY(child, childAngle, mLeft, mTop, mRight, mBottom);
+            int[] childCenterXY;
+            //圆形 CIRCLE
+            if (mPathShape != RECTANGLE) {
+                childCenterXY = getChildCircleCenterXY(maxChildWidthHeight, childAngle, mLeft, mTop, mRight, mBottom);
+            }
+            //矩形 RECTANGLE
+            else {
+                childCenterXY = getChildRectCenterXY(child, childAngle, mLeft, mTop, mRight, mBottom);
+            }
             int x = childCenterXY[0];
             int y = childCenterXY[1];
 
@@ -138,6 +147,21 @@ public class CircleLayout extends ViewGroup {
         }
     }
 
+    private int[] getMaxChildWidthHeight() {
+        int maxM = 0;
+        int maxN = 0;
+
+        int childCount = getChildCount();
+
+        for (int i = 0; i < childCount; i++) {
+            View child = getChildAt(i);
+
+            maxM = Math.max(maxM, child.getMeasuredWidth());
+            maxN = Math.max(maxN, child.getMeasuredHeight());
+        }
+        return new int[]{maxM, maxN};
+    }
+
     /**
      * 取得控件的角度
      *
@@ -145,6 +169,7 @@ public class CircleLayout extends ViewGroup {
      * @param childCount
      * @return
      */
+
     private float getChildAngle(int childIndex, int childCount) {
         int startAngle;
         int endAngle;
@@ -179,22 +204,13 @@ public class CircleLayout extends ViewGroup {
         return childAngle;
     }
 
-    private int[] getChildCenterXY(View child, float childAngle, int mLeft, int mTop, int mRight, int mBottom) {
+    private int[] getChildRectCenterXY(View child, float childAngle, int mLeft, int mTop, int mRight, int mBottom) {
         int x;
         int y;
 
         int centerX = (mLeft + mRight) / 2;
         int centerY = (mTop + mBottom) / 2;
 
-
-        //圆形
-        if (mPathShape != RECTANGLE) {
-
-        }
-        //矩形
-        else {
-            //FIXME 先弄成默认是RECT
-        }
 
         int childWidth = child.getMeasuredWidth();
         int childHeight = child.getMeasuredHeight();
@@ -229,6 +245,33 @@ public class CircleLayout extends ViewGroup {
             }
         }
 
+
+        return new int[]{x, y};
+    }
+
+    private int[] getChildCircleCenterXY(int[] maxChildWH, float childAngle, int mLeft, int mTop, int mRight, int mBottom) {
+        int x;
+        int y;
+
+        int centerX = (mLeft + mRight) / 2;
+        int centerY = (mTop + mBottom) / 2;
+
+
+        int left = mLeft + maxChildWH[0] / 2;
+        int top = mTop + maxChildWH[1] / 2;
+        int right = mRight - maxChildWH[0] / 2;
+        int bottom = mBottom - maxChildWH[1] / 2;
+
+        double childSin = Math.sin(Math.toRadians(childAngle));//-1~1
+        double childCos = Math.cos(Math.toRadians(childAngle));//-1~1
+
+        //水平半径 长轴
+        int hR = Math.abs(right - left) / 2;
+        //垂直半径 短轴
+        int vR = Math.abs(bottom - top) / 2;
+
+        x = (int) (centerX + hR * childCos);
+        y = (int) (centerY + vR * childSin);
 
         return new int[]{x, y};
     }
