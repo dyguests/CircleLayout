@@ -6,13 +6,14 @@ To make child views be arranged in a circular.圆形布局.
 ![rect](/graphics/rect.png)
 ![custom](/graphics/custom.png)
 
-# Usage
+# Installlation
+
 
 Copy CircleLayout.java to your project.
 
 Copy \<declare-styleable name="CircleLayout"\> in attrs.xml to your attrs.xml.
 
-
+# Usage
 
 Parameters:
 
@@ -27,6 +28,7 @@ pathShape should be circle or rectangle,the default value is circle.
 rotateDirection should be clockwise or counterclockwise,the default vlaue is clockwise.
 
     rotateDirection={clockwise,counterclockwise}
+
 # Sample
 
     <com.fanhl.widget.CircleLayout
