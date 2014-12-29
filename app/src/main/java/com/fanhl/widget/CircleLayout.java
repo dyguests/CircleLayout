@@ -271,7 +271,7 @@ public class CircleLayout extends ViewGroup {
         int vR = Math.abs(bottom - top) / 2;
 
         x = (int) (centerX + hR * childCos);
-        y = (int) (centerY + vR * childSin);
+        y = (int) (centerY - vR * childSin);
 
         return new int[]{x, y};
     }
@@ -282,5 +282,58 @@ public class CircleLayout extends ViewGroup {
         double hypotenuse = Math.sqrt(width * width + height * height);
 
         return height / hypotenuse;
+    }
+
+
+    public int getStartAngle() {
+        return mStartAngle;
+    }
+
+    public void setStartAngle(int mStartAngle) {
+        if (this.mStartAngle != mStartAngle) {
+            this.mStartAngle = mStartAngle;
+            requestLayout();
+        }
+    }
+
+    public void setStartAngleAndEndAngle(int mStartAngle) {
+        if (this.mStartAngle != mStartAngle || this.mEndAngle != mStartAngle) {
+            this.mStartAngle = mStartAngle;
+            this.mEndAngle = mStartAngle;
+            requestLayout();
+        }
+    }
+
+    public int getEndAngle() {
+        return mEndAngle;
+    }
+
+    public void setEndAngle(int mEndAngle) {
+        if (this.mEndAngle != mEndAngle) {
+            this.mEndAngle = mEndAngle;
+            requestLayout();
+        }
+    }
+
+    public int getRotateDirection() {
+        return mRotateDirection;
+    }
+
+    public void setRotateDirection(int mRotateDirection) {
+        if (this.mRotateDirection != mRotateDirection) {
+            this.mRotateDirection = mRotateDirection;
+            requestLayout();
+        }
+    }
+
+    public int getPathShape() {
+        return mPathShape;
+    }
+
+    public void setPathShape(int mPathShape) {
+        if (this.mPathShape != mPathShape) {
+            this.mPathShape = mPathShape;
+            requestLayout();
+        }
     }
 }
