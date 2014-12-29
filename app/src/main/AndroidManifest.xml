@@ -16,6 +16,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Circle"
+            android:label="@string/title_activity_circle" >
+        </activity>
+        <activity
+            android:name=".Rectangle"
+            android:label="@string/title_activity_rectangle" >
+        </activity>
+        <activity
+            android:name=".Clockwise"
+            android:label="@string/title_activity_clockwise" >
+        </activity>
+        <activity
+            android:name=".Counterclockwise"
+            android:label="@string/title_activity_counterclockwise" >
+        </activity>
+        <activity
+            android:name=".CustomStartAngle"
+            android:label="@string/title_activity_custom_start_angle" >
+        </activity>
+        <activity
+            android:name=".CustomStartAndEndAngle"
+            android:label="@string/title_activity_custom_start_and_end_angle" >
+        </activity>
+        <activity
+            android:name=".CustomAll"
+            android:label="@string/title_activity_custom_all" >
+        </activity>
+        <activity
+            android:name=".CustomAllInJava"
+            android:label="@string/title_activity_custom_all_in_java" >
+        </activity>
     </application>
 
 </manifest>

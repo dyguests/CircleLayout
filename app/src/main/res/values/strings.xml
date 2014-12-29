@@ -4,5 +4,13 @@
     <string name="app_name">CircleLayout</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_circle">Circle</string>
+    <string name="title_activity_rectangle">Rectangle</string>
+    <string name="title_activity_clockwise">Clockwise</string>
+    <string name="title_activity_counterclockwise">Counterclockwise</string>
+    <string name="title_activity_custom_start_angle">CustomStartAngle</string>
+    <string name="title_activity_custom_start_and_end_angle">CustomStartAndEndAngle</string>
+    <string name="title_activity_custom_all">CustomAll</string>
+    <string name="title_activity_custom_all_in_java">CustomAllInJava</string>
 
 </resources>
