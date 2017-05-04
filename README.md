@@ -1,3 +1,7 @@
+#Deprecated!
+
+see [dyguests/RingLayout](https://github.com/dyguests/RingLayout)
+
 # Android CircleLayout
 
 To make child views be arranged in a circular.圆形布局.
